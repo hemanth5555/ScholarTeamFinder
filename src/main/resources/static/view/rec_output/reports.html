@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymleaf.org">
+<div class="w3-panel w3-card" ng-controller="reports-controller" th:fragment="reports">
+	<div class="row ">
+		<div ng-controller="menuController" class="col-12 col-md-12">
+			<h1 style="text-transform:none; text-align: center;">Reports</h1>
+			<p style="text-transform:none; text-align: center;">We have some ranked reports about genes and drugs in the publications for you.
+			</p>
+			<ul class="breadcrumb" ng-controller="menuController">
+				<li><a ng-click="loadMenu('/reports/gene')" href="javascript:void(0);">Genes</a></li>
+				<li><a href="#">Drugs</a></li>
+			</ul>
+		</div>
+		<br/>
+		<!-- <div ui-view=""></div> -->
+		<!-- <div class="col12 col-md-12" ng-controller="menuController">
+			<ul class="nav nav-pills mb-3 justify-content-center">
+				<li class="nav-item active" ><a class="nav-link" ui-sref=".gene" ui-sref-active="active">Gene</a></li><br/>
+				<li class="nav-item"><a class="nav-link" ui-sref=".drug" ui-sref-active="active">Drug</a></li>
+			</ul>	
+		</div> -->
+		<!-- <div id="myUrl" th:if="${#strings.contains('reports', 'gene')}"> -->
+		<!-- <div id="myUrl" th:if="${$scope.testBoolean}"> -->
+		<!-- <div th:if="${#httpServletRequest.requestURI eq '/reports/gene'}" th:text="@{__${#httpServletRequest.requestURI}__}"> -->
+			<!-- <h1>Test</h1> -->
+		<!-- </div> -->
+		<p th:if="true">true</p>
+		<p th:if="false">false</p>
+	</div>
+</div>
+
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  width: auto !important;
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+ul.breadcrumb {
+    padding: 8px 16px;
+    list-style: none;
+    background-color: #fff;
+	justify-content: center;
+  	display: flex;
+}
+ul.breadcrumb li {display: inline;}
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+}
+ul.breadcrumb li a {color: green;}
+</style>
+</html>

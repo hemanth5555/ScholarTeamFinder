@@ -1,0 +1,54 @@
+<div th:fragment="page_header">
+
+    <header>
+		<nav class=" otr-nav fixed-top" style="background-color: dark blue !important;height: 50px;line-height: 60px;" id="mainNav">
+
+            <div class="collapse navbar-collapse" ng-controller="menuController">
+                <!-- <a href="javascript:void(0)" class="navbar-brand">KnowCOVID-19</a>
+       
+                <ul id="header-navigation" class="nav navbar-collapse">
+                	<li class="nav-item acive" ng-class="menu['/']">
+                		<a class="nav-link" ng-click="loadMenu('/')" href="javascript:void(0);">
+                		About</a></li>
+                	<li class="nav-item" ng-class="menu['/topic_recommender']">
+                		<a class="nav-link" ng-click="loadMenu('/data')" href="javascript:void(0);">Data</a></li>
+                	<li class="nav-item" ng-class="menu['/reports']">
+                		<a class="nav-link" ng-click="loadMenu('/reports')" href="javascript:void(0);">Reports</a></li>
+                	<li class="nav-item mr-auto" ng-class="menu['/filter_page']">
+                		<a class="nav-link" ng-click="loadMenu('/filter_page')" href="javascript:void(0);">Topic Filter</a></li>
+               	<li class="nav-item">
+					<a href="/Scholarteamfinder/login" class="nav-link" th:if="${param.msg==null}">Login</a>
+
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" th:if="${param.username!=null}" th:text="'Hi, '+${param.username[0]}">
+					</a>
+					<div class="dropdown-menu sm-menu">
+					    <a href="/Scholarteamfinder/user/logout" class="dropdown-item bg-danger">Sign out</a>
+					</div>
+					
+				</li>
+				<li class="nav-item">
+					<a href="/Scholarteamfinder/user/getSurvay" class="nav-link">Questionnaire</a></li>
+            	</ul>-->
+
+				<div id="logo" class="pull-left">
+					<a  class="scrollto" >KnowCOVID-19</a>
+				</div> 
+		  
+				<nav id="nav-menu-container">
+				  <ul class="nav-menu">
+					<li class="menu-active"><a href="/Scholarteamfinder">Home</a></li>
+					<li><a href="/Scholarteamfinder/login" class="nav-link" th:if="${param.msg==null}">Login</a></li>
+					<li><a class="nav-link dropdown-toggle" data-toggle="dropdown" th:if="${param.username!=null}" th:text="'Hi, '+${param.username[0]}">
+							  </a><div class="dropdown-menu sm-menu">
+					  <a href="/Scholarteamfinder/user/logout" class="dropdown-item bg-danger">Sign out</a>
+					</div></li>
+					
+					<!-- <li><a href="/Scholarteamfinder/user/register">Register</a></li> -->
+					<li><a ng-click="loadMenu('/filter_page')" href="javascript:void(0);">WorkSpace</a></li>
+					<li><a ng-click="loadMenu('/reports')" href="javascript:void(0);">Reports</a></li>
+				  </ul>
+				</nav>
+            </div>
+        </nav>
+    </header>
+</div>

@@ -1,0 +1,77 @@
+<div class="w3-panel w3-card " ng-controller="reports-controller">
+		<!-- <div id="Gene" class="tab-pane fade in active reports-content" role="tabpanel"> -->
+		<div class="row">
+				<!-- <h1 style="text-transform:none; text-align: left; font-size: 25px;">Genes</h1>
+				<p>Ranked genes that are mentioned in COVID-19 publications.</p> -->
+				<div ng-controller="menuController" class="col-12 col-md-12">
+					<h1 style="text-transform:none; text-align: center;">Reports</h1>
+					<p style="text-transform:none; text-align: center;">We have some ranked reports about genes and drugs in the publications for you.
+					</p>
+					<ul class="breadcrumb" ng-controller="menuController">
+						<li><a ng-click="loadMenu('/reports')" href="javascript:void(0);">Genes</a></li>
+						<li><a ng-click="loadMenu('/reports-drug')" href="javascript:void(0);">Drugs</a></li>
+					</ul>
+				</div>
+				<br/>
+			
+				<div>				
+					<table style="padding-left:80px; padding-right:100px; width:600px" cellspacing="10">
+						<thead>
+							<tr>
+								<td>Genes</td>
+								<td style="font-size:10px;color:grey">first 10 out of </td>
+								<td>Publications</td>
+							</tr>
+							<tr ng-repeat-start="gene in geneList">
+								<td ng-bind="$index+1"></td>
+								<td >{{gene.gene_name}}
+									  <button ng-if="gene.expanded" ng-click="gene.expanded = false">-</button>
+									  <button ng-if="!gene.expanded" ng-click="gene.expanded = true">+</button>
+								</td>
+								<td >{{gene.length}}</td>
+							</tr>
+							<tr ng-if="gene.expanded" ng-repeat-end="" ng-repeat="(title,publication) in gene.publications">
+								<td></td>
+								<td><a href={{publication.url}}>{{title}}</td>
+								<td>{{publication.publish_time}}</td>
+								<td>{{publication.level}}</td>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+					<br/>
+				</div>
+				<br/>
+				<br/>
+		</div>
+</div>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th, td {
+  width: auto !important;
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+ul.breadcrumb {
+	padding: 8px 16px;
+	list-style: none;
+	background-color: #fff;
+	justify-content: center;
+		display: flex;
+}
+ul.breadcrumb li {display: inline;}
+ul.breadcrumb li+li:before {
+	padding: 8px;
+	color: black;
+	content: "/\00a0";
+}
+ul.breadcrumb li a {color: green;}
+</style>

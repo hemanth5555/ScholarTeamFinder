@@ -1,0 +1,575 @@
+<head>
+
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script data-require="angular-touch@1.6.*" data-semver="1.6.2"
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-touch.js"></script>
+	<script data-require="ui-bootstrap@*" data-semver="2.5.0"
+		src="https://cdn.rawgit.com/angular-ui/bootstrap/gh-pages/ui-bootstrap-tpls-2.5.0.js"></script>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+	<link rel="stylesheet" href="Covid19-website/src/main/resources/static/css/sliders.css"></link>
+	<style>
+	*,
+	*:before,
+	*:after{
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+		font-family: "Poppins",sans-serif;
+	}
+	body{
+		height: 100vh;
+		display: -ms-grid;
+		display: grid;
+		place-items: center;
+	}
+	.wrapper{
+		position: relative;
+		/* width: 95vmin;
+		background-color: #ffffff; */
+		padding: 20px 20px 20px 35px;
+		/* border-radius: 10px; */
+	}
+	.container{
+		position: relative;
+		width: 100%;
+		/* margin-top: 30px; */
+	}
+	input[type="range"]{
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		width: 100%;
+		outline: none;
+		position: absolute;
+		margin: auto;
+		top: 0;
+		bottom: 0;
+		background-color: transparent;
+		pointer-events: none;
+	}
+	.slider-track{
+		width: 100%;
+		height: 5px;
+		position: absolute;
+		margin: auto;
+		top: 0;
+		bottom: 0;
+		border-radius: 5px;
+		background-color: dodgerblue;
+	}
+	input[type="range"]::-webkit-slider-runnable-track{
+		-webkit-appearance: none;
+		height: 5px;
+	}
+	input[type="range"]::-moz-range-track{
+		-moz-appearance: none;
+		height: 5px;
+	}
+	input[type="range"]::-ms-track{
+		appearance: none;
+		height: 5px;
+	}
+	input[type="range"]::-webkit-slider-thumb{
+		-webkit-appearance: none;
+		height: 1em;
+		width: 1em;
+		background-color: dodgerblue;
+		cursor: pointer;
+		margin-top: -9px;
+		pointer-events: auto;
+		border-radius: 50%;
+	}
+	input[type="range"]::-moz-range-thumb{
+		-webkit-appearance: none;
+		height: 1.7em;
+		width: 1.7em;
+		cursor: pointer;
+		border-radius: 50%;
+		background-color: dodgerblue;
+		pointer-events: auto;
+	}
+	input[type="range"]::-ms-thumb{
+		appearance: none;
+		height: 1.7em;
+		width: 1.7em;
+		cursor: pointer;
+		border-radius: 50%;
+		background-color: dodgerblue;
+		pointer-events: auto;
+	}
+	input[type="range"]:active::-webkit-slider-thumb{
+		background-color: #ffffff;
+		border: 3px solid dodgerblue;
+	}
+
+	#visualize{
+		border: none;
+  		background-color: inherit;
+  		padding: 10px 28px;
+  		font-size: 16px;
+  		cursor: pointer;
+  		display: inline-block;
+		color: dodgerblue;
+	}
+	#reset{
+		border: none;
+  		background-color: inherit;
+  		padding: 8px 22px;
+  		font-size: 16px;
+  		cursor: pointer;
+  		display: inline-block;
+		color: dodgerblue;
+		margin-left: 75px;	
+	}
+	#apply{
+		background-color: mediumseagreen; 
+		color: black;  		
+		border: none;
+		border-radius: 8px;
+  		padding: 8px 22px;
+  		text-align: center;
+  		text-decoration: none;
+  		display: inline-block;
+  		font-size: 16px;
+  		cursor: pointer;
+		margin-left: 75px;
+	}
+	#objectName{
+		background-color: #e7e7e7; 
+		color: black;  		
+		border: none;
+		border-radius: 8px;
+  		padding: 12px 32px;
+  		text-align: center;
+  		text-decoration: none;
+  		display: inline-block;
+  		font-size: 14px;
+  		margin: 4px 2px;
+  		cursor: pointer;
+	}
+	select {
+    	border: none;
+    	background-color: transparent;
+		border-bottom: 1px solid black;
+	}
+	select option{
+  		background-color: transparent !important;
+		border: 1px solid #e4e4e4;
+		color: #000;
+		-webkit-appearance: none; 
+    	 -moz-appearance: none; 
+	}
+	#Date{
+		border: none;
+		border-bottom: 1px solid black;
+  		background-color: inherit;
+  		padding: 0px 28px;
+  		font-size: 16px;
+  		cursor: pointer;
+  		display: inline-block;
+		color: black;
+	}
+	#read{
+		border: none;
+  		background-color: inherit;
+  		padding: 1px 1px;
+  		font-size: 14px;
+  		cursor: pointer;
+  		display: inline-block;
+		color: dodgerblue;
+	}
+	.starter{
+		height: 60px;
+		overflow: hidden;
+	}
+	.index{
+		height: auto;
+		overflow: auto;
+	}
+	.test{
+		height: 60px;
+		overflow: hidden;
+	}
+	</style>
+	
+	</head>
+	
+	<div class="w3-panel w3-card" ng-controller="topic-model-recommender">
+		<div class="row">
+			<div class="col-12">
+				<a
+					style="color: black; background: transparent; border: none; padding: 15px 0;"
+					role="button">
+					<div class='search'>
+						<h4 class="section-heading" style="line-height: 35px;">KnowCOVID-19
+						Research
+						</h4>
+					</div>
+				</a>
+				<hr class="hr-line" style="margin: 0px -16px 20px -16px;" />
+			</div>
+		</div>
+	
+		<div class="col-12">
+			<h4>
+				<b>Levels of Evidence Pyramid</b>
+			</h4>
+			<p>The levels of evidence pyramid provides a way to visualize both
+				the quality of evidence and the amount of evidence available. For
+				example, systematic reviews are at the top of the pyramid, meaning
+				they are both the highest level of evidence and the least common. As
+				you go down the pyramid, the amount of evidence will increase as the
+				quality of the evidence decreases.</p>
+	
+	
+	
+			<ul class="evidence-level">
+	
+				<li class="level-1"
+					data-title-pyramid="A document that is written by a panel of people that provides acomprehensive review of all relevant studies on a specific clinical or health-related topic orquestion. It is a complete summary of a topic or question based on published and unpublishedstudies"><input
+					type="radio" name="levels" value="true" ng-value="1"
+					ng-model="model.levelSelected" style="position: relative; top: 3px;" />
+					&nbsp;<a style="color: white;">Systematic<br />reviews
+				</a></li>
+				<li class="level-2"
+					data-title-pyramid="A brief summary and assessment over known facts about aspecific scientific literature topic, usually about an intervention or a practical issue. Createdusing systematic methodologies to search and find critically appraised studies or articles.
+	
+				">
+					<input type="radio" name="levels" value="true" ng-value="2"
+					ng-model="model.levelSelected" style="position: relative; top: 3px;" />&nbsp;<a
+					style="color: white;">Critically-Appraised<br />Topics
+				</a>
+				</li>
+				<li class="level-3"
+					data-title-pyramid="Articles that have been selected and reviewed byclinicians and physicians based on their accuracy and relevancy to a specific topic."><input
+					type="radio" name="levels" value="true" ng-value="3"
+					ng-model="model.levelSelected" style="position: relative; top: 3px;" />&nbsp;<a
+					style="color: white;">Critically-Appraised<br />Individual
+						Articles
+				</a></li>
+				<li class="level-4"
+					data-title-pyramid="A study designed to determine the outcome based on a specificvariable that is studied, it consists of two groups of samples, experimental and controlled. Theparticipants are randomly assigned to a group for the study."><input
+					type="radio" name="levels" value="true" ng-value="4"
+					ng-model="model.levelSelected" style="position: relative; top: 3px;" />&nbsp;<a
+					style="color: white;">Randomized Controlled<br />Trials
+				</a></li>
+				<li class="level-5"
+					data-title-pyramid="A study designed with one or more samples, of whom are observed and followedby researchers based on a specific disease or illness outcome to determine the risk factorsassociated with said disease or outcome."><input
+					type="radio" name="levels" value="true" ng-value="5"
+					ng-model="model.levelSelected" style="position: relative; top: 3px;" />&nbsp;<a
+					style="color: white;">Cohort <br />Studies
+				</a></li>
+				<li class="level-6"
+					data-title-pyramid="A study that compares patients who have a certain disease and who do not,for the purpose of observing the risk factors and the disease itself amongst the patients."><input
+					type="radio" name="levels" value="true" ng-value="6"
+					ng-model="model.levelSelected" style="position: relative; top: 3px;" />&nbsp;<a
+					style="color: white;">Case-controlled Studies,<br />Case
+						Series & Case Reports
+				</a></li>
+				<li class="level-7"
+					data-title-pyramid="An article describing a specific situation of a patient.Usually told in a narrative voice of the doctor treating the patient, hence usually has the format ofa detailed story."><input
+					type="radio" name="levels" value="true" ng-value="7"
+					ng-model="model.levelSelected" style="position: relative; top: 3px;" />&nbsp;<a
+					style="color: white;">Background Information,<br />Expert
+						Opinion
+				</a></li>
+			</ul>
+			<p>You can filter results evidence pyramid level and topic level
+				filter. To do that select levels of evidence pyramid and topics and
+				click on "Filter Information" button.</p>
+	
+	
+			<div class="col-12">
+				<div>
+					<p>Select a Topic</p>
+					<div class="text-center">
+						<!-- <button ng-click="showListTopics(); model.topicSelected = 2" ng-repeat="topic in topicssummary" value="{{$index}}" class="btn btn-primary" id="topics" style="margin-right: 5px;" href="#words">Topic {{$index+1}}</button> -->
+						<button ng-click="showListTopics(); model.topicSelected = 0" class="btn btn-primary" id="one">Topic 1</button>
+						<button ng-click="showListTopics(); model.topicSelected = 1" class="btn btn-primary" id="two">Topic 2</button>
+						<button ng-click="showListTopics(); model.topicSelected = 2" class="btn btn-primary" id="three">Topic 3</button>
+						<button ng-click="showListTopics(); model.topicSelected = 3" class="btn btn-primary" id="four">Topic 4</button>
+						<button ng-click="showListTopics(); model.topicSelected = 4" class="btn btn-primary" id="five">Topic 5</button>
+						<button ng-click="showListTopics(); model.topicSelected = 5" class="btn btn-primary" id="six">Topic 6</button>
+						<button ng-click="showListTopics(); model.topicSelected = 6" class="btn btn-primary" id="seven">Topic 7</button>
+						<button ng-click="showListTopics(); model.topicSelected = 7" class="btn btn-primary" id="eight">Topic 8</button>
+						<button ng-click="showListTopics(); model.topicSelected = 8" class="btn btn-primary" id="nine">Topic 9</button>
+						<button ng-click="showListTopics(); model.topicSelected = 9" class="btn btn-primary" id="ten">Topic 10</button>
+					</div>
+		
+					<br>
+	
+					<div ng-if="showListTopic == true" id="words">
+						<p style="float: left;">Words associated with topic: <b>{{model.topicSelected*1+1}}</b></p>
+					</div>
+	
+					<br>
+					<br>
+	
+					<div style="margin-left: 41%;" ng-if="showListTopic == true">
+						<table border="1" style="width: 190px;">
+							<tr ng-repeat="topic in labelFinal[model.topicSelected]">
+								<td style="padding: 4px;">{{topic}} - {{dataFinal[model.topicSelected][$index]}}</td>
+								<!-- <td style="padding: 4px;">{{dataFinal[model.topicSelected][$index]}}</td> -->
+								<!-- <td>{{stats}}</td> -->
+							</tr>
+						</table>
+					</div>
+					<!-- <div class="w3-panel" ng-show="isPieVisible">
+						<h3 style="float: left; width: 80%;">Publications</h3>
+		
+						<div>
+							<canvas id="q-graph" width="800" height="600" class="chart-pie"
+								chart-data="dataFinal[model.topicSelected]"
+								chart-labels="labelFinal[model.topicSelected]" 
+								chart-colors="['#803690','#46BFBD']"
+								chart-dataset-override="PieDataSetOverride"
+								chart-options="optionsPie">	 
+							</canvas>
+						</div>
+					</div> -->
+					<br>
+					<div class = "text-center">
+						<button class="btn btn-text" id="visualize" ng-if="showListTopic == true" ng-click="filterDocuments(model.topicSelected,model.levelSelected);" style="margin-bottom: 5px;">Visualize</button>
+					</div>
+	
+					
+					<div class="col-11" ng-if="showOutput == true" id="chart">
+						<ul>
+							<li style="padding: 15px 0; list-style: none;"><select
+								ng-model="model.chartSelected"
+								ng-change="showChart(model.chartSelected);">
+									<option value="0">Bar Chart</option>
+									<option value="1">Pie Chart</option>
+							</select></li>
+						</ul>
+				
+						<div class="w3-panel" ng-show="isPieVisible">
+							<h3 style="float: left; width: 80%;">
+								<b>Publications</b>
+							</h3>
+			
+							<div>
+								<canvas id="q-graph" width="300" height="100" class="chart-pie"
+									chart-data="dataFinal[model.topicSelected]"
+									chart-labels="labelFinal[model.topicSelected]" 
+									chart-colors="['#803690','#46BFBD']"
+									chart-dataset-override="PieDataSetOverride"
+									chart-options="optionsPie">	 
+								</canvas>
+							</div>
+						</div>
+			
+						<div class="w3-panel " ng-show="isBarVisible">
+							<h3 style="float: left; width: 80%;">
+								<b>Publications</b>
+							</h3>
+			
+							<div>
+								<canvas id="q-graph" width="300" height="100" class="chart-horizontal-bar"
+									chart-data="dataFinal[model.topicSelected]"
+									chart-labels="labelFinal[model.topicSelected]"
+									chart-colors="['#803690','#46BFBD']" chart-options="options">	 
+								</canvas>
+							</div>
+						</div>
+			
+					</div>
+	
+	
+					<div class="form-group" style="text-align: center;">
+						<!-- <button ng-if="showListTopic == true" class="btn btn-primary " id="objectName" ng-click="showChart()">Filter Information</button> -->
+						<button ng-if="showListTopic == true" class="btn btn-primary" id="objectName" ng-click="filterDocumentsTable(model.topicSelected,model.levelSelected);">Filter Information</button>
+						<br/>
+						<br/>
+						<div class="col-12" align="left" ng-if="showTableOutput == true">
+							<!-- {{publications}} -->
+							<table ng-table="publicationsTable" class="table table-striped" style="border: 1px solid black;">
+								<tr style="font-size: 18px; font: arial">
+									<td>
+										<!-- <button name="Date" id="Date" style="margin-left: 50px; width: 200px; font-size: 18px;" ng-click="updateDate()">Date Range
+										</button> -->
+	
+										<select name="Journal" id="Journal" style="margin-left: 75px; width: 300px;" ng-model="selectedChoiceJournal" ng-change="updateJournal()">
+											<option value="">Journal</option>
+											<option ng-repeat="publication in data" value="{{publication.journal}}">{{publication.journal}}</option>
+										</select>
+									
+										<select name="Relevance" id="Relevance" style="margin-left: 75px; width: 300px;" ng-model="selectedChoiceRelevance" ng-change="updateRelevance()">
+											<option value="">Sort By Relevance</option>
+											<option value="-year">Sort By Newest</option>
+											<option value="year">Sort By Oldest</option>
+										  </select>
+										<button ng-if="showReset == true" ng-click="resetClick(model.topicSelected,model.levelSelected)" id="reset">Reset</button>
+										<button ng-if="showApply == true" ng-click="applyClick(selectedChoiceJournal, selectedChoiceRelevance, selectedDateChoice)" id="apply">Apply</button>
+										<br>
+										<!-- <div class="wrapper" ng-if="showRange==true">
+											<div class="values" style="padding-left: 60px; padding-bottom: 10px;">
+												<span id="range1">
+													2020
+												</span>
+												<span> &dash; </span>
+												<span id="range2">
+													2021
+												</span>
+											</div>
+											<div class="container">
+												<div class="slider-track" style="width: 200px;"></div>
+												<input type="range" min="2020" max="2022" id="slider-1" style="width: 200px;" ng-model="selectedDateRange" ng-change="updateRange()">
+												<input type="range" min="2020" max="2022" id="slider-2" style="width: 200px;" ng-model="selectedDateRangeTwo" ng-change="updateRange()">
+											</div>
+											<div>
+												<input type="text" id="fname" name="fname" ng-model="selectedDateChoice">
+												<input type="text" id="fname" name="fname" ng-model="selectedDateChoiceTwo">
+											</div>
+										</div> -->
+										<!-- <br>
+										<span ng-if="showRange == true">{{selectedDate}}</span> -->
+									</td>
+									<!-- <td><b>Journal Venue</b></td> -->
+									
+								</tr>
+								<!-- | orderBy:'date' adding this below works-->
+								<tr ng-repeat="publication in data | filter:{journal:jFilter} | orderBy:rOrder | filter:{year:selectedDateChoice}"> 
+									<!-- <td>
+										<button value="{{$index}}" class="btn btn-info"
+											ng-click="openModal();">Rate</button>
+									</td> -->
+				
+									<td><a style="color: #0369bd; font-weight: 600;" target="_blank" href="{{publication.url}}">{{publication.title}}</a> 
+										<br><p>{{publication.authors}} • {{publication.journal}} • {{publication.publish_time}} • <span>{{publication.level}}</span></p>
+										<p><div id="abstract" ng-class="{'starter':starter,'index': $index == row, 'test': $test == row}"><b>Abstract: </b>{{publication.abstract}} </div><button value="ReadMore" ng-click="readView($index, $test)" id="read">{{readChoice}}</button></p> 
+				
+									<!-- <td>{{publication.level}}</td> -->
+				
+									<!-- <td>{{publication.journal}}</td> -->
+				
+									<!-- <td>{{publication.month}}/{{publication.year}}</td> -->
+									<!-- <td>{{publication.publish_time}}</td> -->
+				
+				
+								</tr>
+				
+							</table>
+		
+	
+						</div>
+	
+					</div>
+				</div>
+			</div>
+	
+			<div class="col-12" ng-show="isCategoryVisible">
+				<div>
+					<h4>
+						<b>Categories</b>
+					</h4>
+					<p>List of Categories generated for covid-19</p>
+					<button class="btn btn-info" ng-click="showTherapyCategory();">Therapy</button>
+					<button class="btn btn-info" ng-click="showEtiologyCategory();">Etiology</button>
+					<button class="btn btn-info" ng-click="showDiagnosisCategory();">Diagnosis</button>
+					<button class="btn btn-info" ng-click="showPrognosisCategory();">Prognosis</button>
+					<button class="btn btn-info" ng-click="showPreventionCategory();">Prevention</button>
+					<button class="btn btn-info" ng-click="showMeaningCategory();">Meaning</button>
+	
+				</div>
+			</div>
+			</br>
+			
+			<div ng-show="isMeaningVisible">
+	
+				<li style="padding: 15px 0;"><select>
+						<option>Children, Lower, Adults, Evaluate, Without, Illness,
+							Medline, Identity</option>
+				</select></li>
+				<div class="form-group" style="text-align: center;">
+					<button class="btn btn-primary " id="objectName">Filter
+						Information</button>
+				</div>
+			</div>
+			
+			<div ng-show="isPrognosisVisible">
+	
+				<li style="padding: 15px 0;"><select>
+						<option>Hospitalized, Underlying, Prevalence, Diseases, Chronic, Respectively,
+							People, Affected</option>
+				</select></li>
+				<div class="form-group" style="text-align: center;">
+					<button class="btn btn-primary " id="objectName">Filter
+						Information</button>
+				</div>
+			</div>
+	
+	
+			<div ng-show="isTherapyVisible">
+	
+				<li style="padding: 15px 0;"><select>
+						<option>Viral, Recieved, Clearance, Events, Times,
+							Entered, Effect, Different,</option>
+	
+				</select></li>
+				<div class="form-group" style="text-align: center;">
+					<button class="btn btn-primary " id="objectName">Filter
+						Information</button>
+				</div>
+			</div>
+	
+	
+			<div ng-show="isEtiologyVisible">
+	
+				<li style="padding: 15px 0;"><select>
+						<option>Association, Diseases, December, Outbreak,
+							Children, Medical, Current, Smokers</option>
+				</select></li>
+				<div class="form-group" style="text-align: center;">
+					<button class="btn btn-primary " id="objectName">Filter
+						Information</button>
+				</div>
+			</div>
+	
+			<div ng-show="isDiagnosisVisible">
+	
+				<li style="padding: 15px 0;"><select>
+						<option>Needed, Summary, Conducted, Public, Organization,
+							Quality, Countries, Safety</option>
+				</select></li>
+				<div class="form-group" style="text-align: center;">
+					<button class="btn btn-primary " id="objectName">Filter
+						Information</button>
+				</div>
+			</div>
+	
+			<div ng-show="isPreventionVisible">
+	
+				<li style="padding: 15px 0;"><select>
+						<option>Masks, Distance, Person, Prolongation, Settings,
+							Short, Inform, Physical</option>
+				</select></li>
+				<div class="form-group" style="text-align: center;">
+					<button class="btn btn-primary " id="objectName">Filter
+						Information</button>
+				</div>
+			</div>
+	
+			
+	
+	
+			<div>
+				<script type="text/ng-template" id="nodes_renderer.html">
+		  <div ui-tree-handle class="tree-node tree-node-content">
+			<a class="btn btn-success btn-xs" ng-if="node.nodes && node.nodes.length > 0" data-nodrag ng-click="toggle(this)"><span
+			class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed
+			}"></span></a> 
+			{{node.title}}
+		  </div>
+		  <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
+			<li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
+			</li>
+		  </ol>
+		</script>
+			</div>
+		</div>
+	
+	
+	</div>

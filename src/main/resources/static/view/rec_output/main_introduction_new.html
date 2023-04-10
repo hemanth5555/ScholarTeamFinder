@@ -1,0 +1,45 @@
+<!--==========================
+    KnowCOVID-19 Publication Analytics Platform
+  ============================-->
+  <div class = "row">
+  <section id="hero" class="wow fadeIn" ng-controller="menuController">
+    <div class="hero-container">
+      <h1 id="tittle"> <div>KnowCOVID-19 Publication</div>Analytics Platform</h1>
+      <p id="info">
+        KnowCOVID-19 platform provides publications filtering and analytics for you through combining machine learning models and <a href="https://www.semanticscholar.org/cord19">CORD-19</a> dataset. You can use this platform to filter publication in the short time. Just go to the WorkSpace page, choose your interested evidence level and topics, the platform will show you the publication lists. At the same time, the platform provide the related figures of the publications. From the figures, you can easily see the relationship between publications and topics. And you can see some prepared analysis results in Reports page. Also We prepare genes and drugs information in this page. In addition, Vidura chatobt can help you to use this platform, and it can answer many questions from you, login and try it!     
+      </p>
+      <img id="mainPic" src="img/Scholarteamfinder.jpg" alt="Covid Imgs" style="width:1200px;height:300px;">
+      <a id="launchBtn" ng-click="loadMenu('/filter_page')" style="width: 280px" class="btn-get-started scrollto">Launch Workspace</a>
+    </div>
+  </section><!-- #hero -->
+
+
+  <!--==========================
+    Divider
+  ============================-->
+  <div id="divider" ng-controller="mainPageController">
+    <h2 id='first'>
+      Total Publications Collected: <span id="firstSpan"> {{publicationNum}} </span>
+    </h2>
+    <h2 id='second'>
+      Number of Total Users: <span id="secondSpan"> {{userNum}} </span>
+    </h2>
+
+  </div>
+
+  <!--==========================
+    How it works
+  ============================-->
+  <section id="howItWorks" class="wow fadeIn" ng-controller="menuController">
+    <div class="howItWorks-contain">
+      <h1 id="tittle2"> How it Works?</h1>
+      <p id="info2">
+        For understanding KnowCOVID-19 better and know us more, we provide a video for you to understand it. You can find more details and features from this video. 
+        
+      </p>
+      <iframe id="video" src="https://youtube.com/embed/54fZpiSagjg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>   
+      <!-- <a id="launchBtn1" class="btn-get-started scrollto">View Dataset</a> -->
+      <a id="launchBtn2" style="width: 180px" class="btn-get-started scrollto" ng-click="loadMenu('/reports')">View Reports</a>
+    </div>
+  </section>
+</div>

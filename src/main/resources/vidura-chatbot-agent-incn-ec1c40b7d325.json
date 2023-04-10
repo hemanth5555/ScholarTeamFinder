@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "vidura-chatbot-agent-incn",
+  "private_key_id": "ec1c40b7d3254dd01d1ab7ebb0fccf065ab248c8",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQC3rT+rpYo4V+nu\nJ1ewimgyK0IhDlJxYZiXk8aQGzEnlOFUYoPAsrxLv/a0iO9bhE+NNHiGyzEtQuBC\ne2kMbzhIVFm8M3/PZuut8uFDcCeoYSzrJ1SJp6540DoCXdlSvK6eoWOMvrobUtaj\nJ7W5xOdW7HtpwbVZQvFFL9329xr6WWwvXx4623FNwaXHPFrNb3RGdFhK0IskK+NS\n4wj5odehE7HjgKC8q4KDrrf9oDnW2FXHPxExAMLNedsIVkbSOypvcFKSGy00gb98\nLjfQJZCPru6Q1meI7oUJnWV5U+Rhvd/cXHFETATHCNwai8CHx1Bh9RxyUgzCBiGX\nb+jvWAHbAgMBAAECggEAD4uN7o5vGUx14JF1Cw/CHv5127hYYxiTqPITBXhxSFyB\n7/nHSG3+huazQx16+VYRKYekUu9fG4NXP/X6TD9P4yDVPpr/mTBCIatQEO+s25C5\nE+aoCywLryJOyb580x/9Vpc2hqxQGFnoqOkgDzd9lAGMHF8OZLfISOCMbgdrdOT3\n2g9MIZmTgyBhrUkpbBNAd9bR4dJaSCrPoCARctLDn4iKWFuZahi8kLgv5HCXgWq3\nu7bJNFtJKj4MCxkcDQS5RWEY4+pGJvEpfTaCQ4mV0fTJOT60ZjwJWIDH0S0Hr97c\nSk3q4ZRGazHHmobZ0QVbbsPnUcs9gxvfTucX/8ZLCQKBgQD8AZonyEBJOHVzeHB8\nkpFV3PdP2CHdNv5kWk3B7Ar0gWT40h9vWWfH4KjE67UWMK39mcu+8oj1F6xApZtP\nomEDS+O8AA4P+y8wQDOMxL/YcEIa50Cr2lNUtqhFAyObWbu/DGMGN7jdZ8wjhCgB\nAnWgMjWm1r5RNf1pBz7C8Bt7JwKBgQC6lm5zh+WSHRMvurG/urr6vV/lDguxtv9V\nKtTqnF9AI4ruYYP3iIzj4LclGaGzbcqV6YYvB+ZruknuCdbRR23TCnFRIqB9xNnp\nFGD4byAhLEF4ZTJVPZTnSGtU+Avk7U5I5P4eCmhXUGKAzOLg4LvU5rwMntQFUpKS\n+ewiN+tELQKBgQCJYhY4OeNSB4WAPdiVERJKTPxGev17K8/jxZc+cQBH64KwY1zf\nx03cmY1oTVebkU5JQt7gajhf5VfyplXVRCC/O1Ab3avM6pL/KwDvbRNpW0mugQOw\nrIVhWXLCrMNsna7MqGQTr60Iht2zPwjQBBc8DiNRoSCABX7xExIUE/HnYQKBgQCF\ng/+lTClKVOPV05I90DDcG4bzMQnNMVWka/HPr/W4v7Y6vizghCXNKo/jTGQZMQc2\nHtSV8uE/VR5x5ziAqMw9p8tOc6jEVohX8O0y2NH06uYucLuDo31ZwsiLFLPuLKFI\nKBRvCqN/V1YlNHdk02uU/UazATRWWq/n3E7MbZc8QQKBgQC2wezZq5odWkCkCaMB\ng1KueaROU83iMI9eDjBZUc3hNpFIQH9j2e+DF7P71zIhLNsafG8FR/bpxheFCcA9\n3xFNOQ4qExX1HGL/wBRrPkguVvfEK6lgIYGnSGNnpNbQJ0KEB1MuHpvrbAyE7/Zg\nrjyJ9q34Z3x5OpbbeshCYgok9g==\n-----END PRIVATE KEY-----\n",
+  "client_email": "vidura-chatbot-v2@vidura-chatbot-agent-incn.iam.gserviceaccount.com",
+  "client_id": "102020535743343199322",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/vidura-chatbot-v2%40vidura-chatbot-agent-incn.iam.gserviceaccount.com"
+}

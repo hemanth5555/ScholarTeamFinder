@@ -1,0 +1,46 @@
+<!--==========================
+    KnowCOVID-19 Publication Analytics Platform
+  ============================-->
+  <div class = "row">
+  <section id="hero" class="wow fadeIn" ng-controller="menuController">
+    <div class="hero-container">
+      <h1 id="tittle"> <div>KnowCOVID-19 Publication</div>Analytics Platform</h1>
+      <p id="info">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit.
+      </p>
+      <img id="mainPic" src="img/Scholarteamfinder.jpg" alt="Covid Imgs" style="width:1200px;height:300px;">
+      <a id="launchBtn" ng-click="loadMenu('/filter_page')" style="width: 280px" class="btn-get-started scrollto">Launch Workspace</a>
+    </div>
+  </section><!-- #hero -->
+
+
+  <!--==========================
+    Divider
+  ============================-->
+  <div id="divider" ng-controller="mainPageController">
+    <h2 id='first'>
+      Total Publications Collected: <span id="firstSpan"> {{publicationNum}} </span>
+    </h2>
+    <h2 id='second'>
+      Number of Total Users: <span id="secondSpan"> {{userNum}} </span>
+    </h2>
+
+  </div>
+
+  <!--==========================
+    How it works
+  ============================-->
+  <section id="howItWorks" class="wow fadeIn" ng-controller="menuController">
+    <div class="howItWorks-contain">
+      <h1 id="tittle2"> How it Works?</h1>
+      <p id="info2">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit.
+      </p>
+      <iframe id="video" src="https://youtube.com/embed/54fZpiSagjg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>   
+      <!-- <a id="launchBtn1" class="btn-get-started scrollto">View Dataset</a> -->
+      <a id="launchBtn2" style="width: 180px" class="btn-get-started scrollto" ng-click="loadMenu('/reports')">View Reports</a>
+    </div>
+  </section>
+</div>
