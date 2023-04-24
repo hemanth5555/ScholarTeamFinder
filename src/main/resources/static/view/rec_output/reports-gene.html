@@ -3,47 +3,63 @@
 		<div class="row">
 				<!-- <h1 style="text-transform:none; text-align: left; font-size: 25px;">Genes</h1>
 				<p>Ranked genes that are mentioned in COVID-19 publications.</p> -->
-				<div ng-controller="menuController" class="col-12 col-md-12">
-					<h1 style="text-transform:none; text-align: center;">Reports</h1>
-					<p style="text-transform:none; text-align: center;">We have some ranked reports about genes and drugs in the publications for you.
-					</p>
-					<ul class="breadcrumb" ng-controller="menuController">
-						<li><a ng-click="loadMenu('/reports')" href="javascript:void(0);">Genes</a></li>
-						<li><a ng-click="loadMenu('/reports-drug')" href="javascript:void(0);">Drugs</a></li>
-					</ul>
-				</div>
+				<hr>
+					<h3>Following are the recommendations for the scholar's:</h3>
+				</hr>
 				<br/>
+				
+				
+				
 			
-				<div>				
-					<table style="padding-left:80px; padding-right:100px; width:600px" cellspacing="10">
-						<thead>
-							<tr>
-								<td>Genes</td>
-								<td style="font-size:10px;color:grey">first 10 out of </td>
-								<td>Publications</td>
-							</tr>
-							<tr ng-repeat-start="gene in geneList">
-								<td ng-bind="$index+1"></td>
-								<td >{{gene.gene_name}}
-									  <button ng-if="gene.expanded" ng-click="gene.expanded = false">-</button>
-									  <button ng-if="!gene.expanded" ng-click="gene.expanded = true">+</button>
-								</td>
-								<td >{{gene.length}}</td>
-							</tr>
-							<tr ng-if="gene.expanded" ng-repeat-end="" ng-repeat="(title,publication) in gene.publications">
-								<td></td>
-								<td><a href={{publication.url}}>{{title}}</td>
-								<td>{{publication.publish_time}}</td>
-								<td>{{publication.level}}</td>
-							</tr>
-						</thead>
-						<tbody></tbody>
-					</table>
-					<br/>
-				</div>
-				<br/>
-				<br/>
+				
 		</div>
+		<input class="input-width" type="text" id="search-bar" placeholder="Search...">
+		<button id="search-button" onclick="createSections()">Search</button>
+		
+		<div id="container"></div>
+		
+		<script>
+		// Define and initialize a JSON array of objects
+		var myArray = [
+			{
+				"name": "John Doe",
+				"age": 30,
+				"email": "john.doe@example.com"
+			},
+			{
+				"name": "Jane Smith",
+				"age": 25,
+				"email": "jane.smith@example.com"
+			},
+			{
+				"name": "Bob Johnson",
+				"age": 40,
+				"email": "bob.johnson@example.com"
+			}
+		];
+
+		// Create a section for each object in the JSON array
+		function createSections() {
+			var container = document.getElementById("container");
+			container.innerHTML = "";
+			var searchTerm = document.getElementById("search-bar").value.toLowerCase();
+			for (var i = 0; i < myArray.length; i++) {
+				if (myArray[i].name.toLowerCase().indexOf(searchTerm) !== -1) {
+					var section = document.createElement("section");
+					section.innerHTML = "<h2>" + myArray[i].name + "</h2>" +
+										"<p>Age: " + myArray[i].age + "</p>" +
+										"<p>Email: " + myArray[i].email + "</p>";
+					container.appendChild(section);
+				}
+			}
+		}
+
+		// Call the createSections function when the search button is clicked
+		//document.getElementById("search-button").addEventListener("click", createSections);
+
+		// Call the createSections function when the page first loads
+		//createSections();
+	</script>
 </div>
 <style>
 table {
@@ -74,4 +90,12 @@ ul.breadcrumb li+li:before {
 	content: "/\00a0";
 }
 ul.breadcrumb li a {color: green;}
+
+.input-width{
+display:inline-block;
+height: 40px;
+align-items:center;
+max-width:70%;
+
+}
 </style>
