@@ -8,7 +8,7 @@
   <groupId>ScholarTeamFinder</groupId>
   <artifactId>ScholarTeamFinder</artifactId>
 
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
   <name>ScholarTeamFinder</name>
   <description>ScholarTeamFinder</description>
 
