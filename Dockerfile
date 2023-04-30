@@ -1,10 +1,14 @@
-FROM mizzouceri/tomcat-mvn-java11:V1
-MAINTAINER Sai Preethi Induri "six2h@umsystem.edu"
+FROM openjdk:11-jdk
 
-RUN apt-get -y update && apt-get -y install lsb-release && apt-get install net-tools nano
-RUN apt-get -y install default-mysql-server maven
-WORKDIR /root 
-ADD ./ /root/Covid19-website
-WORKDIR /root/Covid19-website
-#RUN mvn clean package
-#RUN cp /root/Covid19-website/target/*.war /usr/local/tomcat/webapp/Scholarteamfinder.war
+RUN apt-get update && \
+    apt-get install -y maven
+
+COPY . /root/ScholarTeamFinder
+
+WORKDIR /root/ScholarTeamFinder
+
+RUN mvn clean package
+
+EXPOSE 9301
+
+CMD ["java", "-jar", "target/ScholarTeamFinder-2.5.4.jar"]
