@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  scholar_team_finder:
+    build: .
+    ports:
+      - "9301:9301"
