@@ -7,6 +7,8 @@
 					<h3>Following are the recommendations for the scholar's:</h3>
 				</hr>
 				<br/>
+				<br/>
+				<br/>
 				
 				
 				
@@ -14,8 +16,9 @@
 				
 		</div>
 		<input class="input-width" type="text" id="search-bar" placeholder="Search...">
-		<button id="search-button" onclick="createSections()">Search</button>
-		
+		<button id="search-button">Search</button>
+		<br/>
+		<br/>
 		<div id="container"></div>
 		
 		<script>
@@ -35,6 +38,11 @@
 				"name": "Bob Johnson",
 				"age": 40,
 				"email": "bob.johnson@example.com"
+			},
+			{
+				"name": "Michael Jackson",
+				"age": 35,
+				"email": "jack.michael@example.com"
 			}
 		];
 
@@ -46,6 +54,7 @@
 			for (var i = 0; i < myArray.length; i++) {
 				if (myArray[i].name.toLowerCase().indexOf(searchTerm) !== -1) {
 					var section = document.createElement("section");
+					section.classList.add("section-style");
 					section.innerHTML = "<h2>" + myArray[i].name + "</h2>" +
 										"<p>Age: " + myArray[i].age + "</p>" +
 										"<p>Email: " + myArray[i].email + "</p>";
@@ -55,13 +64,20 @@
 		}
 
 		// Call the createSections function when the search button is clicked
-		//document.getElementById("search-button").addEventListener("click", createSections);
+		document.getElementById("search-button").addEventListener("click", createSections);
 
 		// Call the createSections function when the page first loads
 		//createSections();
 	</script>
 </div>
 <style>
+
+.section-style{
+  background-color: #f2f2f2 ! important;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
 table {
   border-collapse: collapse;
   width: 100%;
